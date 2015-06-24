@@ -1,5 +1,6 @@
 require 'aws-sdk'
 require 'ec2_metadata'
+require 'fileutils'
 
 module Aws
   class MetadataExport
@@ -80,7 +81,7 @@ module Aws
     # :nocov:
     def tags
       @tags ||= Aws::EC2::Resource
-                .new(aws_client: client)
+                .new(client: aws_client)
                 .instance(instance_id).tags
     end
     # :nocov:
