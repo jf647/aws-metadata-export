@@ -1,0 +1,20 @@
+inherit_from: .rubocop_todo.yml
+
+AllCops:
+  Exclude:
+    - '**/Gemfile'
+    - '**/*.gemspec'
+    - 'pkg/**/*'
+
+Style/RegexpLiteral:
+  Exclude:
+    - '**/Guardfile'
+
+Style/Documentation:
+  Exclude:
+    - 'spec/**/*.rb'
+
+Style/FileName:
+  Exclude:
+    - 'bin/aws-metadata-export'
+    - 'lib/aws-metadata-export.rb'

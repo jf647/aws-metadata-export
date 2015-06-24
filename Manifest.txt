@@ -1,0 +1,9 @@
+History.md
+LICENSE
+Manifest.txt
+README.md
+aws-metadata-export.gemspec
+bin/aws-metadata-export
+lib/aws-metadata-export.rb
+lib/aws/metadata_export.rb
+lib/aws/metadata_export/version.rb

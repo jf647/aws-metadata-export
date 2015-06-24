@@ -1,0 +1,8 @@
+---
+machine:
+  ruby:
+    version: 2.2.0
+test:
+  override:
+    - mkdir $CIRCLE_TEST_REPORTS/rspec
+    - bundle exec rspec --format RspecJunitFormatter --out $CIRCLE_TEST_REPORTS/rspec/rspec.xml
