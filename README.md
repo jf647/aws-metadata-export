@@ -31,7 +31,8 @@ The following instance data files are written:
 * az
 
 Tags are written to the a 'tags' directory.  Each file is the name of a
-tag and the contents of that file is the value of the tag.
+tag and the contents of that file is the value of the tag.  To disable
+tag export, pass `--no-tags` to the command line.
 
 ## INSTALLATION
 
@@ -45,6 +46,11 @@ done in your userdata if the instance has a path to rubygems.org.
 Tags are not exported through EC2 instance data, so the EC2 API must be
 used to fetch them.  As such, the IAM permission `ec2:DescribeInstances`
 must be available via an IAM instance profile and role.
+
+If you wish to use the gem on a node without an IAM instance profile,
+you can pass `export_tags: false` to the export method or `--no-tags` to
+the CLI, in which case only the metdata that can be fetched from the
+metadata endpoint will be exported.
 
 ## ENVIRONMENT VARIABLES
 

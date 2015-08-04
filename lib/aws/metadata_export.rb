@@ -4,10 +4,10 @@ require 'fileutils'
 
 module Aws
   class MetadataExport
-    def export
+    def export(export_tags: true)
       set_umask
       write_metadata
-      write_tags
+      write_tags if export_tags
     end
 
     private
