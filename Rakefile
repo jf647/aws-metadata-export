@@ -10,7 +10,7 @@ begin
     license 'MIT'
     extra_deps << ['aws-sdk', '~> 2.0']
     extra_deps << ['ec2-metadata', '~> 0.2']
-    extra_deps << ['slop', '~> 4.2']
+    extra_deps << ['slop', '~> 3.6']
     extra_dev_deps << ['hoe', '~> 3.13']
     extra_dev_deps << ['hoe-gemspec', '~> 1.0']
     extra_dev_deps << ['rake', '~> 10.3']
