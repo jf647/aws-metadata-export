@@ -42,7 +42,7 @@ RSpec.describe Aws::MetadataExport do
       .to eq 'us-east-1'
   end
 
-  it 'should export tags' do
+  it 'should export tags by default' do
     @ame.export
     expect(File.exist?('/var/run/aws_metadata_export/tags/foo'))
       .to be true
@@ -52,6 +52,14 @@ RSpec.describe Aws::MetadataExport do
       .to be true
     expect(File.read('/var/run/aws_metadata_export/tags/baz'))
       .to eq 'gzonk'
+  end
+
+  it 'should not export tags when disabled' do
+    @ame.export(export_tags: false)
+    %w(foo baz).each do |tag|
+      expect(File.exist?("/var/run/aws_metadata_export/tags/#{tag}"))
+        .to be false
+    end
   end
 
   it 'should respect the umask env var' do

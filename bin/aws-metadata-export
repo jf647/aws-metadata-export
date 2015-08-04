@@ -1,5 +1,19 @@
 #!/usr/bin/env ruby
 
 require 'aws-metadata-export'
+require 'slop'
 
-Aws::MetadataExport.new.export
+# parse the command line
+params = { export_tags: true }
+opts = Slop.parse(strict: true, help: true) do
+  banner 'Usage: aws-metadata-export [options]'
+  on 'no-tags', 'Disable export of tags' do
+    params[:export_tags] = false
+  end
+  on 'version', 'print the version' do
+    $stdout.puts Aws::MetadataExport::VERSION
+  end
+end
+
+# export the metadata and tags
+Aws::MetadataExport.new.export(params)
